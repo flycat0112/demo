@@ -13,6 +13,10 @@
 		<module>websocket</module>
 		<module>nettyProtocol</module>
 		<module>echo</module>
+		<module>http</module>
+		<module>udp</module>
+		<module>ssl</module>
+		<module>discard</module>
 	</modules>
 
 	<name>netty</name>
@@ -44,6 +48,15 @@
 		  <artifactId>jboss-marshalling</artifactId>
 		  <version>1.3.18.GA</version>
 	  </dependency>
+
+	  <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+	  <dependency>
+		  <groupId>org.apache.logging.log4j</groupId>
+		  <artifactId>log4j-slf4j-impl</artifactId>
+		  <version>2.11.1</version>
+	  </dependency>
+
+
 
   </dependencies>
 

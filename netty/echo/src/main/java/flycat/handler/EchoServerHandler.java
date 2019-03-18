@@ -19,7 +19,8 @@ public class EchoServerHandler
 
 	@Override
 	public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
-		System.out.println("channelRegistered");
+
+		System.out.println("channelRegistered");//2
 	}
 
 	@Override
@@ -29,8 +30,7 @@ public class EchoServerHandler
 
 	@Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
-		System.out.println("channelActive");
-		super.channelActive(ctx);
+		System.out.println("channelActive");//3
 	}
 
 	@Override
@@ -51,19 +51,21 @@ public class EchoServerHandler
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		ByteBuf in = (ByteBuf) msg;
-		System.out.println("Server received : " + in.toString(Charset.defaultCharset()));
+		System.out.println("Server received : " + in.toString(Charset.defaultCharset()));//5
 
 		ctx.write(in);
 	}
 
 	@Override
 	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+		System.out.println("channelReadComplete");
 		ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)
-			.addListener(ChannelFutureListener.CLOSE);
+			.addListener(ChannelFutureListener.CLOSE);//6
 	}
 
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+		System.out.println("exceptionCaught");
 		cause.printStackTrace();
 		ctx.close();
 	}

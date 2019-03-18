@@ -42,7 +42,7 @@ public class EchoClient {
 						@Override
 						protected void initChannel(SocketChannel ch) throws Exception {
 							ch.pipeline().addLast(new EchoClientHandler());
-							//ch.pipeline().addLast(new EchoClientOutboundHandler());
+							ch.pipeline().addLast(new EchoClientOutboundHandler());
 						}
 					});
 
